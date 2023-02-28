@@ -9,6 +9,10 @@ class MentorsController < ApplicationController
     @mentors = @mentors.where("price_per_hour <= ?", params[:price_per_hour]) if params[:price_per_hour].present?
   end
 
+  def new
+    @mentor = Mentor.new
+  end
+
   def show
     @mentor = Mentor.find(params[:id])
     @booking = Booking.new
