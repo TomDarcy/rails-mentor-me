@@ -1,4 +1,6 @@
 class MentorsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
     @mentors = Mentor.all
     @mentors = @mentors.where(country: params[:country]) if params[:country].present?
