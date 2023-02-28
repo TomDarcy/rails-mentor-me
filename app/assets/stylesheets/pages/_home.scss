@@ -27,8 +27,7 @@
   color: $primary-color;
   text-align: center;
   text-decoration: none;
-
-  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .landing-header:hover{
@@ -37,5 +36,19 @@
 }
 
 .quote {
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 50px;
+  max-width: 500px;
+}
+
+.find-btn {
+  background-color: $secondary-color;
+  color: $light-gray;
+  border: none;
+  border-radius: 5px;
+  padding: 20px 30px;
+  margin-top: 40px;
+  font-size: 18px;
+  text-decoration: none;
 }
