@@ -11,4 +11,16 @@
   </div>
 </div>
 
+<%= form_tag mentors_path, method: :get do %>
+  <%= label_tag :country, "Country:" %>
+  <%= select_tag :country, options_for_select(Mentor.pluck(:country).uniq) %>
+  <%= label_tag :field, "Field:" %>
+  <%= select_tag :field, options_for_select(Mentor.pluck(:field).uniq) %>
+  <%= label_tag :price_per_hour, "Price per hour:" %>
+  <%= number_field_tag :price_per_hour, params[:price_per_hour] %>
+  <%= label_tag :experience, "Experience (in years):" %>
+  <%= number_field_tag :experience, params[:experience] %>
+  <%= submit_tag "Filter" %>
+<% end %>
 
+<%= link_to "Back", request.referer %>

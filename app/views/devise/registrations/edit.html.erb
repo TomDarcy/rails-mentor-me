@@ -32,7 +32,6 @@
 <% else %>
   <h3>Photo</h3>
   <p>Current photo</p>
-  <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 <h3>Cancel my account</h3>
 <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
