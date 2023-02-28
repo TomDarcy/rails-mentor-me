@@ -5,6 +5,12 @@
      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
       <h2><%= mentor.user.first_name %></h2>
       <h2><%= mentor.user.last_name %></h2>
+      <% if @mentor.user.photo.attached? %>
+          <%= cl_image_tag @mentor.user.photo.key, class: "show-avatar" %>
+        <% else %>
+          <h3>Photo</h3>
+          <p>No photo uploaded yet</p>
+        <% end %>
       <%= link_to "Book", mentor_path(mentor) %>
     </div>
     <% end %>
