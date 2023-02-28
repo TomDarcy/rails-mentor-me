@@ -9,16 +9,21 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
-  <div class="navbar">
-<%= image_tag "MMlogo.png", class: "logo" %>
-    <%= link_to "Find a Mentor", mentors_path, class: "nav-link" %>
-    <%= link_to "Become a Mentor", new_mentor_path, class: "nav-link"%>
-    <%= link_to "Sign Up", new_user_session_path, class: "nav-link"  %>
-    <%= link_to "Log In", user_session_path, class: "nav-link" %>
-</div>
-
-      <%= yield %>
-        <p class="notice"><%= notice %></p>
+    <div class="navbar">
+      <%= link_to root_path do %>
+        <%= image_tag "MMlogo.png", class: "logo" %>
+      <% end %>
+      <%= link_to "Find a Mentor", mentors_path, class: "nav-link" %>
+      <%= link_to "Become a Mentor", edit_user_registration_path, class: "nav-link"%>
+      <% if user_signed_in? %>
+        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link"
+ %>
+      <% else %>
+        <%= link_to "Log In/Signup", user_session_path, class: "nav-link" %>
+      <% end %>
+    </div>
+    <%= yield %>
+    <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </body>
 </html>
