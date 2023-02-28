@@ -6,5 +6,4 @@ class User < ApplicationRecord
 
   has_one_attached :photo
   has_many :bookings
-  attr_accessor :photo
 end
