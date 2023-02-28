@@ -1,1 +1,23 @@
+<<<<<<< HEAD
 <%= Mentor page %>
+=======
+<div class="row">
+  <div class="col">
+    <div class="avatar">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar-large", alt: "avatar" %>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="mentor-info">
+      <h2><%= @mentor.user.first_name.capitalize %> <%= @mentor.user.last_name.capitalize
+ %></h2>
+      <%= @mentor.bio %>
+      <%= @mentor.user.email %>
+      <%= @mentor.field %>
+    </div>
+  </div>
+  <div class="col">
+    For booking form
+  </div>
+</div>
+>>>>>>> 3512c57f58bd5cd9265743bb9f79e91a9ca36881
