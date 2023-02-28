@@ -2,7 +2,7 @@
   overflow: hidden;
   height: 120px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
 }
@@ -22,7 +22,7 @@
 .card-product p {
   font-size: 12px;
   line-height: 1.4;
-  opacity: .7;
+  opacity: 0.7;
   margin-bottom: 0;
   margin-top: 8px;
 }
@@ -31,6 +31,7 @@
   padding: 16px;
 }
 
+<<<<<<< HEAD
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -70,4 +71,12 @@
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
+=======
+.mentor-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  background-color: rgba(85, 85, 85, 0.482);
+>>>>>>> master
 }
