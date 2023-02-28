@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+  #  controllers: {
+  #   registrations: 'users/registrations'
+  # }
+
   root to: "pages#home"
 
   resources :mentors
@@ -9,4 +13,8 @@ Rails.application.routes.draw do
   end
   # Defines the root path route ("/")
   # root "articles#index"
+
+  resources :mentors do
+    resources :bookings, only: [:new, :create, :edit, :show, :destroy]
+  end
 end

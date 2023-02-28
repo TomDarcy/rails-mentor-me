@@ -1,0 +1,23 @@
+<div class="container-edit">
+  <div class="edit-header">
+    <div class="header-text head-text-box">
+      <h2>
+        Welcome <%= @mentor.user.first_name.capitalize %>!
+      </h2>
+      <h4>
+        Please update your profile to attract new clients
+      </h4>
+    </div>
+    <div class="avatar">
+      <%= cl_image_tag @mentor.user.photo.key, class: "edit-a-height" %>
+    </div>
+  </div>
+  <%= simple_form_for @mentor do |f| %>
+    <%= f.input :field %>
+    <%= f.input :country %>
+    <%= f.input :experience %>
+    <%= f.input :price_per_hour, label: "Price per Hour: $" %>
+    <%= f.input :bio, as: :text, input_html: { rows: 4 } %>
+    <%= f.button :submit, "Submit", class: "btn-flat" %>
+  <% end %>
+</div>
