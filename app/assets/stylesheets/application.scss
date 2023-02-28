@@ -13,3 +13,9 @@
 @import "pages/mentors";
 @import "components/card";
 @import "components/avatar";
+@import "components/button";
+@import "components/container";
+
+body {
+  background-color: $background-color;
+}
