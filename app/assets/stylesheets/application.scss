@@ -11,3 +11,7 @@
 @import "components/index";
 @import "pages/index";
 @import "components/avatar";
+@import "components/button";
+body {
+  background-color: $background-color;
+}

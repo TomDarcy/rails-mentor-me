@@ -8,6 +8,7 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
+    <%= f.input :mentor, label: "Are you a mentor?", as: :boolean, checked_value: true, unchecked_value: false %>
     <%= f.input :photo, as: :file %>
     <%= f.input :password,
                 required: true,

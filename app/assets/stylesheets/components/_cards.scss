@@ -34,7 +34,47 @@
 .mentor-info {
   display: flex;
   align-items: center;
+  width: 90%;
   flex-direction: column;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  background-color: rgba(85, 85, 85, 0.482);
+  background: white;
+  padding: 16px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.show-page {
+  margin-top: 40px;
+}
+
+.booking-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  background: white;
+  padding: 16px;
+}
+
+.avatar-attributes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  background: white;
+  padding: 16px;
+}
+
+.ratings {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  flex-direction: column;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  background: white;
+  padding: 16px;
+  margin: 0 auto;
+  margin-top: 20px;
 }
