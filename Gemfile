@@ -15,6 +15,11 @@ gem "pg", "~> 1.1"
 # Use devise for user authentication
 gem "devise"
 
+# cloudinary for image hosting
+gem "cloudinary"
+# set environment variables for cloudinary
+gem "dotenv-rails", groups: [:development, :test]
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 

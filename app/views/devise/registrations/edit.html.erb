@@ -8,6 +8,8 @@
     <% end %>
     <%= f.input :first_name, required: true%>
     <%= f.input :last_name, required: true%>
+    <%= f.input :mentor, label: "Are you a mentor?", as: :boolean, checked_value: true, unchecked_value: false %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
@@ -23,6 +25,14 @@
   <div class="form-actions">
     <%= f.button :submit, "Update" %>
   </div>
+<% end %>
+<% if @user.photo == nil %>
+  <h3>Photo</h3>
+  <p>No photo uploaded yet</p>
+<% else %>
+  <h3>Photo</h3>
+  <p>Current photo</p>
+  <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 <h3>Cancel my account</h3>
 <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
