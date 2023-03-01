@@ -55,9 +55,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     @mentor = Mentor.find_by_user_id(resource.id)
     if resource.mentor? && @mentor
-      redirect_to edit_mentor_path(@mentor) and return
+      edit_mentor_path(@mentor) and return
     else
-      redirect_to root_path and return
+      root_path and return
       # super(resource)
     end
   end
