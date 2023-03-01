@@ -76,11 +76,11 @@
   border-radius: 4px;
   background: $secondary-color;
   transition: background 0.3s ease;
-  width: 70%;
+  width: 100%;
 }
 
 .btn-booking:hover {
   background: darken($secondary-color, 10%);
   color: white;
-  width: 70%;
+  width: 100%;
 }
