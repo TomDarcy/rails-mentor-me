@@ -69,3 +69,18 @@
     margin-bottom: 10px;
   }
 }
+
+.btn-booking {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $secondary-color;
+  transition: background 0.3s ease;
+  width: 70%;
+}
+
+.btn-booking:hover {
+  background: darken($secondary-color, 10%);
+  color: white;
+  width: 70%;
+}
