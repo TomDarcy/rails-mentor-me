@@ -9,7 +9,9 @@
       </h4>
     </div>
     <div class="avatar">
-      <%= cl_image_tag @user.photo.key, class: "edit-a-height" %>
+      <% if current_user.photo.attached? %> %>
+        <%= cl_image_tag current_user.photo.key, class: "edit-a-height", alt: "avatar" %>
+      <% end %>
     </div>
   </div>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>

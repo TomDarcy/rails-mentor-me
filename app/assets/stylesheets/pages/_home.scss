@@ -5,8 +5,8 @@
 }
 
 .mentor-hero {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-  url('mentorhero.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("mentorhero.png");
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -21,7 +21,7 @@
   font-weight: 400;
 }
 
-.landing-header{
+.landing-header {
   font-size: 50px;
   font-weight: 400;
   color: $primary-color;
@@ -30,8 +30,8 @@
   margin-bottom: 50px;
 }
 
-.landing-header:hover{
-  color: $light-gray;
+.landing-header:hover {
+  color: darken($primary-color, 20%);
   text-decoration: none;
 }
 
@@ -39,7 +39,7 @@
   font-size: 16px;
   font-weight: 300;
   margin-top: 50px;
-  max-width: 500px;
+  width: 75%;
 }
 
 .find-btn {
@@ -51,4 +51,16 @@
   margin-top: 40px;
   font-size: 18px;
   text-decoration: none;
+}
+
+.home-btn-size {
+  width: 300px;
+  height: 50px;
+}
+
+.button-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
 }
