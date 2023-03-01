@@ -1,24 +1,24 @@
 <div class='container'>
-  <div class="text-header">
-    <h2>Find your mentor</h2>
-  </div>
+  <div class="header-text">
+              <h2>Find your mentor</h2>
+            </div>
   <div class="filter">
     <%= form_tag mentors_path, method: :get do %>
-      <%= label_tag :country, "Country:" %>
-      <%= select_tag :country, options_for_select(Mentor.pluck(:country).uniq) %>
-      <%= label_tag :field, "Field:" %>
-      <%= select_tag :field, options_for_select(Mentor.pluck(:field).uniq) %>
-      <%= label_tag :price_per_hour, "Price per hour:" %>
-      <%= number_field_tag :price_per_hour, params[:price_per_hour] %>
-      <%= label_tag :experience, "Experience (in years):" %>
-      <%= number_field_tag :experience, params[:experience] %>
+      <%= label_tag :country, "Country", class: "text" %>
+      <%= select_tag :country, options_for_select(Mentor.pluck(:country).uniq), class:"input" %>
+      <%= label_tag :field, "Field", class: "text"  %>
+      <%= select_tag :field, options_for_select(Mentor.pluck(:field).uniq), class:"input" %>
+      <%= label_tag :price_per_hour, "Price per hour", class: "text" %>
+      <%= number_field_tag :price_per_hour, params[:price_per_hour],class:"input" %>
+      <%= label_tag :experience, "Experience (in years)", class: "text"  %>
+      <%= number_field_tag :experience, params[:experience], class:"input" %>
       <%= submit_tag "Filter", class: "btn-flat" %>
-      <%= link_to "Clear", request.referer %>
+      <%= link_to "Clear", request.referer, class: "btn text"  %>
     <% end %>
   </div>
   <div class="cards">
     <% @mentors.each do |mentor| %>
-      <%= link_to mentor_path(mentor) do %>
+      <%= link_to mentor_path(mentor), class: "text-decoration-none" do %>
         <% url = "" %>
         <% if mentor.user.photo.attached?%>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path mentor.user.photo.key, crop: :fill %>')"
