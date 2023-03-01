@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  after_action :create_a_mentor, only: [:create, :update]
+  # after_action :create_a_mentor, only: [:create, :update]
 
   # GET /resource/sign_up
   # def new
@@ -53,20 +53,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    @mentor = Mentor.find_by_user_id(resource.id)
-    if resource.mentor? && @mentor
-      edit_mentor_path(@mentor) and return
+    not_exist = Mentor.find_by_user_id(resource.id).nil?
+
+    if resource.mentor? && not_exist
+      @mentor = Mentor.create(user_id: resource.id)
+      edit_mentor_path(@mentor)
     else
-      root_path and return
+      mentors_path
       # super(resource)
     end
   end
 
   def create_a_mentor
     not_exist = Mentor.find_by_user_id(resource.id).nil?
-    if resource.mentor? && not_exist
-      @mentor = Mentor.create(user_id: resource.id)
-    end
+    @mentor = Mentor.create(user_id: resource.id) if resource.mentor? && not_exist
     # go to mentors edit page
   end
 
