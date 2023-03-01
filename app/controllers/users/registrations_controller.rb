@@ -64,11 +64,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def create_a_mentor
+  def after_update_path_for(resource)
     not_exist = Mentor.find_by_user_id(resource.id).nil?
-    @mentor = Mentor.create(user_id: resource.id) if resource.mentor? && not_exist
-    # go to mentors edit page
+
+    if resource.mentor? && not_exist
+      @mentor = Mentor.create(user_id: resource.id)
+      edit_mentor_path(@mentor)
+    else
+      mentors_path
+      # super(resource)
+    end
   end
+  # def create_a_mentor
+  #   not_exist = Mentor.find_by_user_id(resource.id).nil?
+  #   @mentor = Mentor.create(user_id: resource.id) if resource.mentor? && not_exist
+  #   # go to mentors edit page
+  # end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
