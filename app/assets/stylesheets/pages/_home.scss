@@ -13,8 +13,7 @@
     flex-direction: column;
     text-align: center;
     color: rgb(249, 242, 242);
-    font-family: $body-font;
-    font-weight: 100;
+    font-weight: $lighter-font-weight;
     height: 100vh;
     width: 100%;
     font-size: 30px;
@@ -36,18 +35,9 @@
 
 .quote {
     font-size: 16px;
-    font-weight: 300;
+    font-weight: $extra-light-font-weight;
     margin-top: 50px;
     width: 75%;
-}
-
-.btn-flat {
-    font-weight: 300;
-}
-
-.home-btn-size {
-    width: 300px;
-    height: 50px;
 }
 
 .button-box {
