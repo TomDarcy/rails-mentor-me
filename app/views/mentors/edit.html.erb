@@ -9,7 +9,7 @@
       </h4>
     </div>
     <div>
-      <% if @mentor.user.photo.attached? %> %>
+      <% if @mentor.user.photo.attached? %>
         <%= cl_image_tag @mentor.user.photo.key, class: "edit-a-height" %>
       <% end %>
     </div>
