@@ -1,7 +1,7 @@
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 180px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,12 +23,10 @@
 .card-category:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   transform: scale(1.02);
-  top: -2px
-
+  top: -2px;
 }
 
 .text {
   margin-right: 5px;
   margin-left: 5px;
 }
-
