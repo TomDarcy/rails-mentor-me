@@ -9,7 +9,7 @@
       </h4>
     </div>
     <div class="avatar">
-      <% if current_user.photo.attached? %> %>
+      <% if current_user.photo.attached? %>
         <%= cl_image_tag current_user.photo.key, class: "edit-a-height", alt: "avatar" %>
       <% end %>
     </div>
