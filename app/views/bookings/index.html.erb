@@ -8,13 +8,14 @@
 <% if @mentee_bookings.length > 0 %>
 <% @mentee_bookings.each do |booking| %>
   <div class="bookings-card">
+  <%= cl_image_tag booking.mentor.user.photo.key %>
     <div class="bookings-card-header">
       <h2><%= booking.mentor.user.first_name %></h2>
       <h6><em><%= booking.mentor.field %></em></h6>
     </div>
     <div class="bookings-card-body">
-    <%= image_tag "mentorhero.png", width: 300 %>
-      <p><%#= How do we put the personal description of booking session? %></p>
+
+
     </div>
     <div class="bookings-card-footer">
     <%= link_to "Cancel Session", bookings_path(@bookings), data: {turbo_method: :delete} %>
@@ -29,13 +30,13 @@
 <br>
 <div class="bookings-container">
 <% if @mentor_bookings.length > 0 %>
-<%= @mentor_bookings.each do |booking| %>
+<% @mentor_bookings.each do |booking| %>
   <div class="bookings-card">
     <div class="bookings-card-header">
       <h2><%= booking.user.first_name %></h2>
     </div>
     <div class="bookings-card-body">
-    <%= image_tag "mentorhero.png", width: 300 %>
+       <%= cl_image_tag booking.mentor.user.photo.key %>
       <p><%#= How do we put the personal description of booking session? %></p>
     </div>
     <div class="bookings-card-footer">
@@ -51,13 +52,13 @@
 <br>
 <div class="bookings-container">
 <% if @mentor_bookings.length > 0 %>
-<%= @mentor_bookings.each do |booking| %>
+<% @mentor_bookings.each do |booking| %>
   <div class="bookings-card">
     <div class="bookings-card-header">
       <h2><%= booking.user.first_name %></h2>
     </div>
     <div class="bookings-card-body">
-    <%= image_tag "mentorhero.png", width: 300 %>
+
       <p><%#= How do we put the personal description of booking session? %></p>
     </div>
     <div class="bookings-card-footer">
@@ -71,13 +72,13 @@
 <br>
 <div class="bookings-container">
 <% if @mentor_bookings.length > 0 %>
-<%= @mentor_bookings.each do |booking| %>
+<% @mentor_bookings.each do |booking| %>
   <div class="bookings-card">
     <div class="bookings-card-header">
       <h2><%= booking.user.first_name %></h2>
     </div>
     <div class="bookings-card-body">
-    <%= image_tag "mentorhero.png", width: 300 %>
+
       <p><%#= How do we put the personal description of booking session? %></p>
     </div>
     <div class="bookings-card-footer">
