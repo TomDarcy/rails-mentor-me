@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   resources :mentors do
     resources :bookings, only: [:new, :create, :edit, :show, :destroy]
   end
+
+
+
 end

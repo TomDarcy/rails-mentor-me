@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :set_mentor, only: [:create]
+
   def index
     @bookings = Booking.all
   end
@@ -8,11 +10,12 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = @mentor.bookings.build(booking_params)
     if @booking.save
-      redirect_to bookings_path
+      redirect_to mentor_path(@mentor), notice: 'Booking was successfully created.'
     else
-      render :new
+      # send home
+      redirect_to mentor_path(@mentor), notice: 'Booking was not created.'
     end
   end
 
@@ -32,8 +35,13 @@ class BookingsController < ApplicationController
 
   private
 
+  def set_mentor
+    @mentor = Mentor.find(params[:mentor_id])
+  end
+
   def booking_params
-    params.require(:booking).permit(:user_id, :mentor_id, :start_time, :end_time, :description, :status)
+    params.require(:booking).permit(:user_id, :mentor_id, :start_time, :end_time, :description,
+                                    :status).merge(user_id: current_user.id)
   end
 
   def set_booking
