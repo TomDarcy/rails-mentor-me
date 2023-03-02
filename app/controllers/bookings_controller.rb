@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
       redirect_to mentor_path(@mentor),
                   notice: 'Booking could not be created. There is already a booking at this time.'
     elsif @booking.save
-      redirect_to mentor_path(@mentor), notice: 'Booking was successfully created.'
+      redirect_to bookings_path, notice: 'Booking was successfully created.'
     else
       # send home
       redirect_to mentor_path(@mentor), notice: 'Booking was not created.'

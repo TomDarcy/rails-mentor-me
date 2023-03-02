@@ -19,7 +19,7 @@
             <div class="description">
               <%= booking.description %>
               <br>
-              <%= booking.start_time %> - <%= booking.end_time %>
+              <%= booking.start_time.strftime("%B %d, %Y at %I:%M %p") %> - <%= booking.end_time.strftime("%I:%M %p") %>
             </div>
           </div>
           <div class="booking-buttons">
