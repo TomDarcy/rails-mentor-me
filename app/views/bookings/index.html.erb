@@ -20,7 +20,7 @@
         <div class="bookings-card-body">
         </div>
         <div class="bookings-card-footer">
-          <%= link_to "Cancel Session", booking_path(booking), data: {turbo_method: :delete}, class: "btn-flat text-decoration-none" %>
+          <%= link_to "Cancel Session", booking_path(booking), data: {turbo_method: :delete}, class: "btn-flat text-decoration-none btn-negative" %>
           <%= mail_to booking.mentor.user.email do %>
             <a href="mailto:<%= booking.mentor.user.email %>" class="text-decoration-none btn-color">
               <i class="fas fa-envelope btn-color"></i> Contact
@@ -40,15 +40,33 @@
       <div class="bookings-card">
         <div class="bookings-card-header">
           <h2><%= booking.user.first_name %></h2>
+          <%= booking.status %>
         </div>
         <div class="bookings-card-body">
           <%= cl_image_tag booking.mentor.user.photo.key %>
           <p><%#= How do we put the personal description of booking session? %></p>
         </div>
         <div class="bookings-card-footer">
-          <%= link_to "Accept", bookings_path(@bookings), class: "btn-flat text-decoration-none btn-positive" %>
-          <%= link_to "Decline", bookings_path(@bookings), data: {turbo_method: :delete}, class:"btn-flat text-decoration-none btn-negative" %>
+          <% if booking.status == "pending" %>
+            <%= form_tag(accept_booking_path(id: booking.id), method: :post) do %>
+              <%= submit_tag "Accept", class: "btn-flat text-decoration-none btn-positive" %>
+            <% end %>
+            <%= form_tag(decline_booking_path(id: booking.id), method: :post) do %>
+              <%= submit_tag "Decline", class: "btn-flat text-decoration-none btn-negative" %>
+            <% end %>
+          <% elsif booking.status == "accepted" %>
+            <%= form_tag(decline_booking_path(id: booking.id), method: :post) do %>
+              <%= submit_tag "Decline", class: "btn-flat text-decoration-none btn-negative" %>
+            <% end %>
+          <% elsif booking.status == "declined" %>
+            <%= form_tag(accept_booking_path(id: booking.id), method: :post) do %>
+              <%= submit_tag "Accept", class: "btn-flat text-decoration-none btn-positive" %>
+            <% end %>
+          <% end%>
         </div>
+        <%= form_tag(become_mentor_path, method: :post) do %>
+          <%= submit_tag "Become a Mentor", class: "dropdown-item" %>
+        <% end %>
       <% end %>
     </div>
   <% end %>
