@@ -40,10 +40,12 @@
       </div>
       <div class="col">
         <div class="booking-form">
-          <%= simple_form_for [@mentor, @booking], url: new_mentor_booking_path(@mentor), method: :post do |f| %>
+          <%= simple_form_for [@mentor, @booking], url: mentor_bookings_path(@mentor), method: :post do |f| %>
             <%= f.input :start_time, as: :datetime, html5: true %>
-            <%= f.input :end_time, as: :datetime, html5: true%>
+            <%= f.input :end_time, as: :datetime, html5: true %>
             <%= f.input :description %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'pending' } %>
+            <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
             <%= f.button :submit, "Create Booking", class: "btn-booking" %>
           <% end %>
         </div>
