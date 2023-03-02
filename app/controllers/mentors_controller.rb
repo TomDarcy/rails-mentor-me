@@ -15,6 +15,13 @@ class MentorsController < ApplicationController
     @mentor = Mentor.new
   end
 
+  def become_mentor
+    current_user.update_attribute(:mentor, true)
+    Mentor.create(user_id: current_user.id)
+    mentor = Mentor.find_by_user_id(current_user.id)
+    redirect_to edit_mentor_path((mentor))
+  end
+
   def show
     @mentor = Mentor.find(params[:id])
     @booking = Booking.new

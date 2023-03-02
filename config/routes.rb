@@ -17,6 +17,5 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create, :edit, :show, :destroy]
   end
 
-
-
+  post 'mentors/become_mentor', to: 'mentors#become_mentor', as: :become_mentor
 end

@@ -34,3 +34,54 @@
   color: rgb(116, 116, 116);
   background-color: rgba(116, 116, 116, 0.1);
 }
+
+.form-container {
+  background-color: #f1f1f145;
+  padding: 20px;
+}
+
+.mentor-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1 0 50%;
+  padding: 10px;
+}
+
+.label-text {
+  color: $tertiary-color;
+  font-weight: bold;
+}
+
+.input-field {
+  border: none;
+  border-bottom: 2px solid $tertiary-color;
+  color: $tertiary-color;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.input-field:focus {
+  border-color: $tertiary-color;
+  outline: none;
+}
+
+.primary-btn {
+  background-color: $tertiary-color;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.primary-btn:hover {
+  background-color: darken($tertiary-color, 10%);
+}
