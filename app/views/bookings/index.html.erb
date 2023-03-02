@@ -1,43 +1,88 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item active">
-          <%# <%= link_to "Home", (needs the path here) class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%# <%= link_to "My Bookings", (needs path here), class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= # link_to "Home", (needs path here), class: "dropdown-item" %>
-              <%= # link_to "My Bookings", needs path here, class: "dropdown-item" %>
-              <%= # link_to "Logout", needs path here, class: "dropdown-item" %>
-            </div>
-          </li>
-      </ul>
-    </div>
-  </div>
+<div class="header">
+  <h1>Upcoming Sessions</h1>
+  <br>
+  <h5>Mentors</h5>
+  <br>
 </div>
-    <hr>
-  <div class="below-header">
-    <h1 class="bookings-title">My Bookings</h1>
+<div class="bookings-container">
+<% if @mentee_bookings.length > 0 %>
+<% @mentee_bookings.each do |booking| %>
+  <div class="bookings-card">
+    <div class="bookings-card-header">
+      <h2><%= booking.mentor.user.first_name %></h2>
+      <h6><em><%= booking.mentor.field %></em></h6>
+    </div>
+    <div class="bookings-card-body">
+    <%= image_tag "mentorhero.png", width: 300 %>
+      <p><%#= How do we put the personal description of booking session? %></p>
+    </div>
+    <div class="bookings-card-footer">
+    <%= link_to "Cancel Session", bookings_path(@bookings), data: {turbo_method: :delete} %>
+      <p class="email-link"><%= mail_to booking.mentor.user.email %></p>
+    </div>
+    <% end %>
   </div>
-<div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-<%= # insert the mentor card image here %>
-    <%# <%= @mentor..each do %>
-      <%# <%= @mentor.name %>
-      <%# <%= @mentor.description %>
-      <%# <%= @mentor.price %>
-    <%# <% end %>
-    <button class=".btn-ghost">View Details</button>
+  <% end %>
+</div>
+<hr>
+<h5>Mentees</h5>
+<br>
+<div class="bookings-container">
+<% if @mentor_bookings.length > 0 %>
+<%= @mentor_bookings.each do |booking| %>
+  <div class="bookings-card">
+    <div class="bookings-card-header">
+      <h2><%= booking.user.first_name %></h2>
+    </div>
+    <div class="bookings-card-body">
+    <%= image_tag "mentorhero.png", width: 300 %>
+      <p><%#= How do we put the personal description of booking session? %></p>
+    </div>
+    <div class="bookings-card-footer">
+    <%= link_to "Accept", bookings_path(@bookings), class: "accept-decline" %>
+    <%= link_to "Decline", bookings_path(@bookings), data: {turbo_method: :delete} %>
+    </div>
+    <% end %>
   </div>
+  <% end %>
+</div>
+<hr>
+<h5>Past Mentor Sessions</h5>
+<br>
+<div class="bookings-container">
+<% if @mentor_bookings.length > 0 %>
+<%= @mentor_bookings.each do |booking| %>
+  <div class="bookings-card">
+    <div class="bookings-card-header">
+      <h2><%= booking.user.first_name %></h2>
+    </div>
+    <div class="bookings-card-body">
+    <%= image_tag "mentorhero.png", width: 300 %>
+      <p><%#= How do we put the personal description of booking session? %></p>
+    </div>
+    <div class="bookings-card-footer">
+    <%= link_to "Leave a Review", bookings_path(@bookings), data: {turbo_method: :delete} %>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+<hr>
+<h5>Past Mentee Sessions</h5>
+<br>
+<div class="bookings-container">
+<% if @mentor_bookings.length > 0 %>
+<%= @mentor_bookings.each do |booking| %>
+  <div class="bookings-card">
+    <div class="bookings-card-header">
+      <h2><%= booking.user.first_name %></h2>
+    </div>
+    <div class="bookings-card-body">
+    <%= image_tag "mentorhero.png", width: 300 %>
+      <p><%#= How do we put the personal description of booking session? %></p>
+    </div>
+    <div class="bookings-card-footer">
+    <%= link_to "Leave a Review", bookings_path(@bookings), data: {turbo_method: :delete} %>
+    </div>
+    <% end %>
+  </div>
+  <% end %>

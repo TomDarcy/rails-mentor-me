@@ -2,11 +2,11 @@ class BookingsController < ApplicationController
   before_action :set_mentor, only: [:create]
 
   def index
-    @bookings = Booking.all
-  end
-
-  def new
-    @booking = Booking.new
+    # @mentee_bookings = Booking.where(user_id: current_user.id)
+    # @mentor_bookings = Booking.where(mentor_id: current_user.id)
+    mentor = Mentor.find_by_user_id(current_user.id)
+    @mentor_bookings = Booking.where(mentor_id: mentor.id)
+    @mentee_bookings = Booking.where(user_id: current_user.id)
   end
 
   def create
@@ -23,10 +23,6 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def show
-    @booking = Booking.find(params[:id])
-  end
-
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
@@ -40,8 +36,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:user_id, :mentor_id, :start_time, :end_time, :description,
-                                    :status).merge(user_id: current_user.id)
+    params.require(:booking).permit(:user_id, :mentor_id, :start_time, :end_time, :description, :status).merge(user_id: current_user.id)
   end
 
   def set_booking
