@@ -16,4 +16,10 @@ class User < ApplicationRecord
   #   # go to mentors edit page
   #   # redirect_to edit_mentor_path(@mentor.id)
   # end
+
+  # def not_mentor_anymore!
+  #   Mentor.find_by_user_id(self.id)&.destroy
+  #   self.mentor = false
+  #   self.save
+  # end
 end
