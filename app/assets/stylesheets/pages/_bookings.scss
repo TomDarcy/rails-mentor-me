@@ -9,28 +9,62 @@
   font-weight: $normal-font-weight;
 }
 
-.my-bookings-secondary{
+.my-bookings-secondary {
   margin: 10px;
   font-weight: 300;
 }
 
 .bookings-container {
-  display: flex;
   margin: 0 auto;
-  justify-content: center;
-  width: 50%;
-  border: 1px solid red;
-  height: 100%;
-  align-items: center;
-  justify-content: space-between;
-  margin: 10px;
-  padding: 10px;
-  box-shadow:rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  width: 83%;
+  padding: 0 20px;
+  margin-top: 20px;
 }
 
 .booking-avatar {
-  width: 50%;
+  height: 200px;
+  width: 250px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+.card-booking {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  height: 200px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  background: white;
+  padding-right: 16px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 4px;
+  justify-content: space-between;
+}
+
+.booking-buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 150px;
+  margin-right: 15px;
+}
+
+.booking-button-size {
+  width: 100%;
+  margin: 10px;
+}
+
+.booking-photo {
+  margin-left: 0;
+}
+
+.description {
+  font-weight: 300;
+}
+
+.container-booking-total {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }

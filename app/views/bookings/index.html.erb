@@ -1,60 +1,95 @@
-<h1 class="my-bookings-header">Upcoming Sessions</h1>
-  <br>
-  <h5 class="my-bookings-secondary">Mentors</h5>
-  <br>
+<div class="container-booking-total">
+  <h1 class="my-bookings-header">Mentoring Sessions
+  </h1>
   <div class="bookings-container">
+    <!-- Mentoring sessions -->
     <% if @mentee_bookings.length > 0 %>
       <% @mentee_bookings.each do |booking| %>
-        <% if booking.mentor.user.photo.attached? %>
-          <%= cl_image_tag booking.mentor.user.photo.key, class: "booking-avatar" %>
-        <% else %>
-          <%= image_tag "placeholder_person.jpg", class: "booking-avatar" %>
-        <% end %>
-          <%= booking.mentor.user.first_name %>
-          <h6><em><%= booking.mentor.field %></em></h6>
-          <%= link_to "Cancel Session", booking_path(booking), data: {turbo_method: :delete}, class: "btn-flat text-decoration-none" %>
-          <%= mail_to booking.mentor.user.email do %>
-            <a href="mailto:<%= booking.mentor.user.email %>" class="text-decoration-none btn-color">
-              <i class="fas fa-envelope btn-color"></i> Contact
-            </a>
-          <% end %>
-      <% end %>
-  </div>
-
-<h5 class="my-bookings-secondary">Mentees</h5>
-<br>
-<div class="bookings-container">
-  <% if @mentor_bookings.length > 0 %>
-    <% @mentor_bookings.each do |booking| %>
-      <% if booking.mentor.user.photo.attached? %>
-          <%= cl_image_tag booking.mentor.user.photo.key, class: "booking-avatar" %>
+        <div class="card-booking">
+          <div class="booking-photo">
+            <% if booking.mentor.user.photo.attached? %>
+              <%= cl_image_tag booking.mentor.user.photo.key, class: "booking-avatar" %>
+            <% else %>
+              <%= image_tag "placeholder_person.jpg", class: "booking-avatar" %>
+            <% end %>
+          </div>
+          <div class="booking-content">
+            <%= booking.mentor.user.first_name.capitalize %> <%= booking.mentor.user.last_name.capitalize %>
+            <h6><em><%= booking.status %></em></h6>
+            <div class="description">
+              <%= booking.description %>
+              <br>
+              <%= booking.start_time %> - <%= booking.end_time %>
+            </div>
+          </div>
+          <div class="booking-buttons">
+            <div class="booking-button-size">
+              <%= link_to "Cancel Session", booking_path(booking), data: {turbo_method: :delete}, class: "btn-flat text-decoration-none" %>
+            </div>
+            <div class="booking-button-size">
+              <%= link_to "Review Session", booking_path(booking), data: {turbo_method: :delete}, class: "btn-flat text-decoration-none" %>
+            </div>
+            <div class="booking-button-size">
+              <%= mail_to booking.mentor.user.email do %>
+                <a href="mailto:<%= booking.mentor.user.email %>" class="text-decoration-none btn-color">
+                  <i class="fas fa-envelope btn-color"></i> Contact
+                </a>
+              <% end %>
+            </div>
+          </div>
         </div>
-      <% else %>
-          <%= image_tag "placeholder_person.jpg", class: "booking-avatar" %>
       <% end %>
-          <%= booking.user.first_name %>
-          <% if booking.status == "pending" %>
-            <%= form_tag(accept_booking_path(id: booking.id), method: :post) do %>
-              <%= submit_tag "Accept", class: "btn-flat text-decoration-none btn-positive" %>
-            <% end %>
-            <%= form_tag(decline_booking_path(id: booking.id), method: :post) do %>
-              <%= submit_tag "Decline", class: "btn-flat text-decoration-none btn-negative" %>
-            <% end %>
-          <% elsif booking.status == "accepted" %>
-            <%= form_tag(decline_booking_path(id: booking.id), method: :post) do %>
-              <%= submit_tag "Decline", class: "btn-flat text-decoration-none btn-negative" %>
-            <% end %>
-          <% elsif booking.status == "declined" %>
-            <%= form_tag(accept_booking_path(id: booking.id), method: :post) do %>
-              <%= submit_tag "Accept", class: "btn-flat text-decoration-none btn-positive" %>
-            <% end %>
-          <% end%>
-        <%= form_tag(become_mentor_path, method: :post) do %>
-          <%= submit_tag "Become a Mentor", class: "dropdown-item" %>
-        <% end %>
-      <% end %>
-    <%= link_to "Accept", bookings_path(@bookings), class: "accept-decline" %>
-    <%= link_to "Decline", bookings_path(@bookings), data: {turbo_method: :delete} %>
     <% end %>
-  <% end %>
-</div>
+    <!-- Mentoring sesison copy -->
+    <h1 class="my-bookings-header">Coaching Sessions
+    </h1>
+    <% if @mentor_bookings.length > 0 %>
+      <% @mentor_bookings.each do |booking| %>
+        <div class="card-booking">
+          <div class="booking-photo">
+            <% if booking.user.photo.attached? %>
+              <%= cl_image_tag booking.user.photo.key, class: "booking-avatar" %>
+            <% else %>
+              <%= image_tag "placeholder_person.jpg", class: "booking-avatar" %>
+            <% end %>
+          </div>
+          <div class="booking-content">
+            <%= booking.user.first_name.capitalize %> <%= booking.user.last_name.capitalize %>
+            <h6><em><%= booking.status %></em></h6>
+            <div class="description">
+              <%= booking.description %>
+              <br>
+              <%= booking.start_time %> - <%= booking.end_time %>
+            </div>
+          </div>
+          <div class="booking-buttons">
+            <% if booking.status == "pending" %>
+              <div class="booking-button-size">
+                <%= form_tag(accept_booking_path(id: booking.id), method: :post) do %>
+                  <%= submit_tag "Accept", class: "btn-flat text-decoration-none btn-positive" %>
+                <% end %>
+              </div>
+              <div class="booking-button-size">
+                <%= form_tag(decline_booking_path(id: booking.id), method: :post) do %>
+                  <%= submit_tag "Decline", class: "btn-flat text-decoration-none btn-negative" %>
+                <% end %>
+              </div>
+            <% elsif booking.status == "accepted" %>
+              <div class="booking-button-size">
+                <%= form_tag(decline_booking_path(id: booking.id), method: :post) do %>
+                  <%= submit_tag "Decline", class: "btn-flat text-decoration-none btn-negative" %>
+                <% end %>
+              </div>
+            <% elsif booking.status == "declined" %>
+              <div class="booking-button-size">
+                <%= form_tag(accept_booking_path(id: booking.id), method: :post) do %>
+                  <%= submit_tag "Accept", class: "btn-flat text-decoration-none btn-positive" %>
+                <% end %>
+              </div>
+            <% end%>
+            <!-- ending button div -->
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <!-- Mentoring sessions -->
