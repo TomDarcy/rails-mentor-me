@@ -18,5 +18,4 @@ Rails.application.routes.draw do
   end
 
   post 'mentors/become_mentor', to: 'mentors#become_mentor', as: :become_mentor
-
 end
