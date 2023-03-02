@@ -11,7 +11,15 @@ class BookingsController < ApplicationController
 
   def create
     @booking = @mentor.bookings.build(booking_params)
-    if @booking.save
+
+    # Check for conflicting bookings
+    if Booking.where(mentor_id: @mentor.id)
+              .where("(start_time <= ? AND end_time >= ?) OR (start_time <= ? AND end_time >= ?)",
+                     @booking.start_time, @booking.start_time, @booking.end_time, @booking.end_time)
+              .exists?
+      redirect_to mentor_path(@mentor),
+                  notice: 'Booking could not be created. There is already a booking at this time.'
+    elsif @booking.save
       redirect_to mentor_path(@mentor), notice: 'Booking was successfully created.'
     else
       # send home
