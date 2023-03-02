@@ -1,66 +1,48 @@
 // Specific CSS for your home-page
 * {
-  margin: 0 auto;
-  padding: 0;
+    margin: 0 auto;
+    padding: 0;
 }
 
 .mentor-hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("mentorhero.png");
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  color: rgb(249, 242, 242);
-  font-family: $headers-font;
-  height: 100vh;
-  width: 100%;
-  font-size: 30px;
-  font-weight: 400;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("mentorhero.png");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: rgb(249, 242, 242);
+    font-weight: $lighter-font-weight;
+    height: 100vh;
+    width: 100%;
+    font-size: 30px;
 }
 
 .landing-header {
-  font-size: 50px;
-  font-weight: 400;
-  color: $primary-color;
-  text-align: center;
-  text-decoration: none;
-  margin-bottom: 50px;
+    font-size: 50px;
+    font-weight: 200;
+    color: $primary-color;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 50px;
 }
 
 .landing-header:hover {
-  color: darken($primary-color, 20%);
-  text-decoration: none;
+    color: darken($primary-color, 20%);
+    text-decoration: none;
 }
 
 .quote {
-  font-size: 16px;
-  font-weight: 300;
-  margin-top: 50px;
-  width: 75%;
-}
-
-.find-btn {
-  background-color: $secondary-color;
-  color: $light-gray;
-  border: none;
-  border-radius: 5px;
-  padding: 20px 30px;
-  margin-top: 40px;
-  font-size: 18px;
-  text-decoration: none;
-}
-
-.home-btn-size {
-  width: 300px;
-  height: 50px;
+    font-size: 16px;
+    font-weight: $extra-light-font-weight;
+    margin-top: 50px;
+    width: 75%;
 }
 
 .button-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
 }
