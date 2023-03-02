@@ -37,6 +37,24 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def accept_booking
+    @booking = Booking.find(params[:id])
+    @booking.update(status: 'accepted')
+    redirect_to bookings_path
+  end
+
+  def decline_booking
+    @booking = Booking.find(params[:id])
+    @booking.update(status: 'declined')
+    redirect_to bookings_path
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    redirect_to bookings_path
+  end
+
   private
 
   def set_mentor

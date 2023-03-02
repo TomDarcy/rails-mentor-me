@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   end
 
   post 'mentors/become_mentor', to: 'mentors#become_mentor', as: :become_mentor
+  post 'bookings/:id/accept', to: 'bookings#accept_booking', as: :accept_booking
+  post 'bookings/:id/decline', to: 'bookings#decline_booking', as: :decline_booking
 end
