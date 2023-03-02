@@ -73,6 +73,11 @@
         </div>
       </div>
     <% end %>
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-info">
+        <%= msg %>
+      </div>
+    <% end %>
     <!-- Old Navbar -->
     <%= yield %>
     <!-- <p class="notice"><%= notice %></p>
