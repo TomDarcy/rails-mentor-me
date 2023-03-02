@@ -8,7 +8,23 @@
 }
 
 .btn-color {
-  color: $secondary-color;
+  background-color: $secondary-color;
+}
+
+.btn-positive {
+  background-color: $positive-color;
+}
+
+.btn-positive:hover {
+  background-color: darken($positive-color, 10%);
+}
+
+.btn-negative {
+  background-color: $negative-color;
+}
+
+.btn-negative:hover {
+  background-color: darken($negative-color, 10%);
 }
 
 .btn-flat:hover {

@@ -46,8 +46,8 @@
           <p><%#= How do we put the personal description of booking session? %></p>
         </div>
         <div class="bookings-card-footer">
-          <%= link_to "Accept", bookings_path(@bookings), class: "accept-decline" %>
-          <%= link_to "Decline", bookings_path(@bookings), data: {turbo_method: :delete} %>
+          <%= link_to "Accept", bookings_path(@bookings), class: "btn-flat text-decoration-none btn-positive" %>
+          <%= link_to "Decline", bookings_path(@bookings), data: {turbo_method: :delete}, class:"btn-flat text-decoration-none btn-negative" %>
         </div>
       <% end %>
     </div>
@@ -86,7 +86,7 @@
             <p><%#= How do we put the personal description of booking session? %></p>
           </div>
           <div class="bookings-card-footer">
-            <%= link_to "Leave a Review", bookings_path(@bookings), data: {turbo_method: :delete} %>
+            <%= link_to "Leave a Review", bookings_path(@bookings), data: {turbo_method: :delete}, class: "btn-flat" %>
           </div>
         <% end %>
       </div>
