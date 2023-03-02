@@ -39,17 +39,51 @@
         </div>
       </div>
       <div class="col">
-        <div class="booking-form">
-          <%= simple_form_for [@mentor, @booking], url: mentor_bookings_path(@mentor), method: :post do |f| %>
-            <%= f.input :start_time, as: :datetime, html5: true %>
-            <%= f.input :end_time, as: :datetime, html5: true %>
-            <%= f.input :description %>
-            <%= f.input :status, as: :hidden, input_html: { value: 'pending' } %>
-            <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
-            <%= f.button :submit, "Create Booking", class: "btn-booking" %>
+        <% if user_signed_in? %>
+          <div class="booking-form">
+            <%= simple_form_for [@mentor, @booking], url: mentor_bookings_path(@mentor), method: :post do |f| %>
+              <%= f.input :start_time, as: :string, input_html: { class: 'flatpickr datetimepicker', data: { enable_time: true, min_date: 'today', max_date: '+14' } } %>
+              <%= f.input :end_time, as: :string, input_html: { class: 'flatpickr datetimepicker', data: { enable_time: true, min_date: 'today', max_date: '+14' } } %>
+              <%= f.input :description %>
+              <%= f.input :status, as: :hidden, input_html: { value: 'pending' } %>
+              <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+              <%= f.button :submit, "Create Booking", class: "btn-booking" %>
+            <% end %>
+          <% else %>
+            <div class="booking-form">
+              <%= simple_form_for [@mentor, @booking], url: mentor_bookings_path(@mentor), method: :post do |f| %>
+                <%= f.input :start_time, as: :string, input_html: { class: 'flatpickr datetimepicker', data: { enable_time: true, min_date: 'today', max_date: '+14' }, disabled: true } %>
+                <%= f.input :end_time, as: :string, input_html: { class: 'flatpickr datetimepicker', data: { enable_time: true, min_date: 'today', max_date: '+14' }, disabled: true } %>
+                <%= f.input :description, input_html: { disabled: true } %>
+              <% end %>
+              <%= link_to "Sign in to book", new_user_session_path, class: "btn-booking text-decoration-none text-center
+" %>
+            </div>
           <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
+<script>
+  flatpickr('.flatpickr', {
+    enableTime: true,
+    dateFormat: 'Y-m-d H:i',
+          minuteIncrement: 30,
+
+    minDate: 'today',
+    maxDate: new Date(new Date().setDate(new Date().getDate() + 28)).toISOString().split('T')[0],
+
+  //  onChange: function(selectedDates, dateStr, instance) {
+  //     if (instance.element.name === 'booking[start_time]') {
+  //       // Calculate the default end time (1 hour after the selected start time)
+  //       selectedDates[0].setTime(selectedDates[0].getTime() + 3600000)
+  //       var defaultEndTime = selectedDates[0]
+  //       // Set the value of the end time input field to the default end time
+  //       console.log(instance);
+  //       instance.element.form[2].value = defaultEndTime
+  //       // instance.element.nextElbooking[end_time]
+  //     }
+  //   }
+  });
+</script>

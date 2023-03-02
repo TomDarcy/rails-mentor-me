@@ -1,48 +1,78 @@
 // Specific CSS for your home-page
 * {
-    margin: 0 auto;
-    padding: 0;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .mentor-hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("mentorhero.png");
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    color: rgb(249, 242, 242);
-    font-weight: $lighter-font-weight;
-    height: 100vh;
-    width: 100%;
-    font-size: 30px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("mentorhero.png");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: rgb(249, 242, 242);
+  font-weight: $lighter-font-weight;
+  height: 100vh;
+  width: 100%;
+  font-size: 30px;
 }
 
 .landing-header {
-    font-size: 50px;
-    font-weight: 200;
-    color: $primary-color;
-    text-align: center;
-    text-decoration: none;
-    margin-bottom: 50px;
+  font-size: 50px;
+  font-weight: 200;
+  color: $primary-color;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 50px;
 }
 
 .landing-header:hover {
-    color: darken($primary-color, 20%);
-    text-decoration: none;
+  color: darken($primary-color, 20%);
+  text-decoration: none;
 }
 
 .quote {
-    font-size: 16px;
-    font-weight: $extra-light-font-weight;
-    margin-top: 50px;
-    width: 75%;
+  font-size: 16px;
+  font-weight: $extra-light-font-weight;
+  margin-top: 50px;
+  width: 75%;
 }
 
 .button-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.top-right {
+  justify-content: right;
+  position: absolute;
+  top: 6px;
+  right: 10px;
+}
+
+.login-btn-small {
+  background-color: none;
+  color: $font-accent-color;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.5s;
+  font-weight: $lighter-font-weight;
+}
+
+.login-btn-small:hover {
+  background-color: $primary-color;
+  opacity: 0.4;
+  color: $font-accent-color;
 }
