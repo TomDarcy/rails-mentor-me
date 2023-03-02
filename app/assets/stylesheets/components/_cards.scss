@@ -1,9 +1,10 @@
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 220px;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -160,4 +161,14 @@
 
 .header-text {
   color: $font-accent-color;
+}
+
+.bookings-container {
+  width: 300;
+border: 1px solid red;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow:rgba(0, 0, 0, 0.2);
 }
