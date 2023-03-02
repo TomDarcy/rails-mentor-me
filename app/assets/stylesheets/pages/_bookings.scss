@@ -71,4 +71,10 @@
 
 .booking-content {
   max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
