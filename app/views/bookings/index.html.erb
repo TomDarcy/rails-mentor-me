@@ -5,85 +5,89 @@
   <br>
 </div>
 <div class="bookings-container">
-<% if @mentee_bookings.length > 0 %>
-<% @mentee_bookings.each do |booking| %>
-  <div class="bookings-card">
-  <%= cl_image_tag booking.mentor.user.photo.key %>
-    <div class="bookings-card-header">
-      <h2><%= booking.mentor.user.first_name %></h2>
-      <h6><em><%= booking.mentor.field %></em></h6>
+  <% if @mentee_bookings.length > 0 %>
+    <% @mentee_bookings.each do |booking| %>
+      <div class="bookings-card">
+        <% if booking.mentor.user.photo.attached? %>
+          <%= cl_image_tag booking.mentor.user.photo.key %>
+        <% else %>
+          <%= image_tag "placeholder_person.jpg" %>
+        <% end %>
+        <div class="bookings-card-header">
+          <h2><%= booking.mentor.user.first_name %></h2>
+          <h6><em><%= booking.mentor.field %></em></h6>
+        </div>
+        <div class="bookings-card-body">
+        </div>
+        <div class="bookings-card-footer">
+          <%= link_to "Cancel Session", booking_path(booking), data: {turbo_method: :delete}, class: "btn-flat text-decoration-none" %>
+          <%= mail_to booking.mentor.user.email do %>
+            <a href="mailto:<%= booking.mentor.user.email %>" class="text-decoration-none btn-color">
+              <i class="fas fa-envelope btn-color"></i> Contact
+            </a>
+          <% end %>
+        </div>
+      <% end %>
     </div>
-    <div class="bookings-card-body">
-
-
-    </div>
-    <div class="bookings-card-footer">
-    <%= link_to "Cancel Session", bookings_path(@bookings), data: {turbo_method: :delete} %>
-      <p class="email-link"><%= mail_to booking.mentor.user.email %></p>
-    </div>
-    <% end %>
-  </div>
   <% end %>
 </div>
 <hr>
 <h5>Mentees</h5>
 <br>
 <div class="bookings-container">
-<% if @mentor_bookings.length > 0 %>
-<% @mentor_bookings.each do |booking| %>
-  <div class="bookings-card">
-    <div class="bookings-card-header">
-      <h2><%= booking.user.first_name %></h2>
+  <% if @mentor_bookings.length > 0 %>
+    <% @mentor_bookings.each do |booking| %>
+      <div class="bookings-card">
+        <div class="bookings-card-header">
+          <h2><%= booking.user.first_name %></h2>
+        </div>
+        <div class="bookings-card-body">
+          <%= cl_image_tag booking.mentor.user.photo.key %>
+          <p><%#= How do we put the personal description of booking session? %></p>
+        </div>
+        <div class="bookings-card-footer">
+          <%= link_to "Accept", bookings_path(@bookings), class: "btn-flat text-decoration-none btn-positive" %>
+          <%= link_to "Decline", bookings_path(@bookings), data: {turbo_method: :delete}, class:"btn-flat text-decoration-none btn-negative" %>
+        </div>
+      <% end %>
     </div>
-    <div class="bookings-card-body">
-       <%= cl_image_tag booking.mentor.user.photo.key %>
-      <p><%#= How do we put the personal description of booking session? %></p>
-    </div>
-    <div class="bookings-card-footer">
-    <%= link_to "Accept", bookings_path(@bookings), class: "accept-decline" %>
-    <%= link_to "Decline", bookings_path(@bookings), data: {turbo_method: :delete} %>
-    </div>
-    <% end %>
-  </div>
   <% end %>
 </div>
 <hr>
 <h5>Past Mentor Sessions</h5>
 <br>
 <div class="bookings-container">
-<% if @mentor_bookings.length > 0 %>
-<% @mentor_bookings.each do |booking| %>
-  <div class="bookings-card">
-    <div class="bookings-card-header">
-      <h2><%= booking.user.first_name %></h2>
+  <% if @mentor_bookings.length > 0 %>
+    <% @mentor_bookings.each do |booking| %>
+      <div class="bookings-card">
+        <div class="bookings-card-header">
+          <h2><%= booking.user.first_name %></h2>
+        </div>
+        <div class="bookings-card-body">
+          <p><%#= How do we put the personal description of booking session? %></p>
+        </div>
+        <div class="bookings-card-footer">
+          <%= link_to "Leave a Review", bookings_path(@bookings), data: {turbo_method: :delete} %>
+        </div>
+      <% end %>
     </div>
-    <div class="bookings-card-body">
-
-      <p><%#= How do we put the personal description of booking session? %></p>
-    </div>
-    <div class="bookings-card-footer">
-    <%= link_to "Leave a Review", bookings_path(@bookings), data: {turbo_method: :delete} %>
-    </div>
-    <% end %>
-  </div>
   <% end %>
-<hr>
-<h5>Past Mentee Sessions</h5>
-<br>
-<div class="bookings-container">
-<% if @mentor_bookings.length > 0 %>
-<% @mentor_bookings.each do |booking| %>
-  <div class="bookings-card">
-    <div class="bookings-card-header">
-      <h2><%= booking.user.first_name %></h2>
-    </div>
-    <div class="bookings-card-body">
-
-      <p><%#= How do we put the personal description of booking session? %></p>
-    </div>
-    <div class="bookings-card-footer">
-    <%= link_to "Leave a Review", bookings_path(@bookings), data: {turbo_method: :delete} %>
-    </div>
+  <hr>
+  <h5>Past Mentee Sessions</h5>
+  <br>
+  <div class="bookings-container">
+    <% if @mentor_bookings.length > 0 %>
+      <% @mentor_bookings.each do |booking| %>
+        <div class="bookings-card">
+          <div class="bookings-card-header">
+            <h2><%= booking.user.first_name %></h2>
+          </div>
+          <div class="bookings-card-body">
+            <p><%#= How do we put the personal description of booking session? %></p>
+          </div>
+          <div class="bookings-card-footer">
+            <%= link_to "Leave a Review", bookings_path(@bookings), data: {turbo_method: :delete}, class: "btn-flat" %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
-  </div>
-  <% end %>

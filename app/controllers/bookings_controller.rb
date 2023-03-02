@@ -44,7 +44,8 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:user_id, :mentor_id, :start_time, :end_time, :description, :status).merge(user_id: current_user.id)
+    params.require(:booking).permit(:user_id, :mentor_id, :start_time, :end_time, :description,
+                                    :status).merge(user_id: current_user.id)
   end
 
   def set_booking
