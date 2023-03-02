@@ -1,15 +1,21 @@
 class ReviewsController < ApplicationController
+  before_action :set_booking, only: [:create]
   def create
-    @review = @mentor.bookings.build(booking_params)
-    if @booking.save
-      redirect_to mentor_path(@mentor), notice: 'Booking was successfully created.'
+    @review = @booking.reviews.build(review_params)
+    if @review.save
+      redirect_to bookings_path, notice: 'Review was successfully created.'
     else
-      # send home
-      redirect_to mentor_path(@mentor), notice: 'Booking was not created.'
+      render 'mentors/index', status: :unprocessable_entity
     end
   end
-    @review = Review.new(set_params)
+
+  private
+
+  def review_params
+    params.require(:review).permit(:review, :rating).merge(booking: @booking)
   end
 
-
+  def set_booking
+    @booking = Booking.find(params[:booking_id])
+  end
 end

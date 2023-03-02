@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
     mentor = Mentor.find_by_user_id(current_user.id)
     @mentor_bookings = Booking.where(mentor_id: mentor.id)
     @mentee_bookings = Booking.where(user_id: current_user.id)
+    @review = Review.new
   end
 
   def create
