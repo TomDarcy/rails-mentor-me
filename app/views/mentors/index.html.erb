@@ -6,19 +6,19 @@
     <%= form_tag mentors_path, method: :get, class: "mentor-form" do %>
       <div class="form-group">
         <%= label_tag :country, "Country", class: "label-text" %>
-        <%= select_tag :country, options_for_select(Mentor.pluck(:country).uniq.compact.reject(&:blank?)), class: "input-field" %>
+        <%= select_tag :country, options_for_select([['', '']] + Mentor.pluck(:country).uniq.compact.reject(&:blank?).map{|c| [c,c]}, params[:country]), class: "input-field" %>
       </div>
       <div class="form-group">
         <%= label_tag :field, "Field", class: "label-text"  %>
-        <%= select_tag :field, options_for_select(Mentor.pluck(:field).uniq.compact.reject(&:blank?)), class: "input-field" %>
+        <%= select_tag :field, options_for_select([['', '']] + Mentor.pluck(:field).uniq.compact.reject(&:blank?).map{|f| [f,f]}, params[:field]), class: "input-field" %>
       </div>
       <div class="form-group">
         <%= label_tag :price_per_hour, "Price per hour $USD", class: "label-text" %>
-        <%= number_field_tag :price_per_hour, params[:price_per_hour], class: "input-field" %>
+        <%= number_field_tag :price_per_hour, "", class: "input-field" %>
       </div>
       <div class="form-group">
         <%= label_tag :experience, "Experience (in years)", class: "label-text"  %>
-        <%= number_field_tag :experience, params[:experience], class: "input-field" %>
+        <%= number_field_tag :experience, "", class: "input-field" %>
       </div>
       <div class="form-group form-actions">
         <%= submit_tag "Filter", class: "btn-flat primary-btn" %>
