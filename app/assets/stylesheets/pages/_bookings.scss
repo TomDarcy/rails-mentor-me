@@ -1,0 +1,26 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+}
+.my-bookings-header {
+  margin: 10px;
+  color: $tertiary-color;
+  font-weight: $normal-font-weight;
+}
+
+.my-bookings-secondary {
+  margin: 10px;
+  font-weight: 400;
+}
+
+.bookings-container {
+  display: flex;
+  border: 1px solid red;
+  width: 50%;
+}
+
+.booking-avatar {
+  width: 40%;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
