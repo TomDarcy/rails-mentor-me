@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   before_action :set_booking, only: [:create]
   def create
     @review = @booking.reviews.build(review_params)
+
     if @review.save
       redirect_to bookings_path, notice: 'Review was successfully created.'
     else

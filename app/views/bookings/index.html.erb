@@ -44,9 +44,19 @@
             <div class="booking-button-size">
               <%= link_to "Cancel Session", booking_path(booking), data: {turbo_method: :delete}, class: "btn-flat text-decoration-none btn-negative" %>
             </div>
+            <!-- Modal button -->
             <div class="booking-button-size">
-              <%= link_to "Review Session", booking_path(booking), data: {turbo_method: :delete}, class: "btn-flat text-decoration-none" %>
+              <button type="button" class="btn-flat text-decoration-none" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%=booking.mentor.id%>">
+                Review
+              </button>
             </div>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop<%=booking.mentor.id%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <%= render "review_modal", booking: booking, review: @review %>
+              </div>
+            </div>
+            <!-- End of modal -->
             <div class="booking-button-size">
               <%= mail_to booking.mentor.user.email do %>
                 <a href="mailto:<%= booking.mentor.user.email %>" class="text-decoration-none btn-color">
@@ -129,15 +139,3 @@
       <% end %>
     <% end %>
     <!-- Mentoring sessions -->
-    
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-      Leave your review
-    </button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <%= render "review_modal" %>
-      </div>
-    </div>
-
