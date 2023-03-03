@@ -12,6 +12,39 @@
   color: white;
 }
 
+.btn-color {
+  color: $secondary-color;
+}
+
+.btn-color:hover {
+  color: darken($secondary-color, 10%);
+}
+
+.btn-positive {
+  background-color: $positive-color;
+}
+
+.accepted {
+  color: $positive-color;
+}
+
+.declined {
+  color: $negative-color;
+}
+
+.btn-positive:hover {
+  background-color: darken($positive-color, 10%);
+}
+
+.btn-negative {
+  background-color: $negative-color;
+}
+
+.btn-negative:hover {
+  background-color: darken($negative-color, 10%);
+}
+
+
 .btn-flat-home {
   color: white;
   padding: 8px 24px;
@@ -34,7 +67,7 @@
   background-color: whitesmoke;
   padding: 8px 24px;
   border-radius: 4px;
-  font-weight: lighter;
+  font-weight: $normal-font-weight;
   opacity: 0.7;
   transition: opacity 0.3s ease;
   text-decoration: none;
@@ -45,7 +78,7 @@
   background-color: whitesmoke;
   padding: 8px 24px;
   border-radius: 4px;
-  font-weight: lighter;
+  font-weight: $normal-font-weight;
   opacity: 1;
   text-decoration: none;
 }

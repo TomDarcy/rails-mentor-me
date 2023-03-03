@@ -1,13 +1,30 @@
 <div class="mentor-hero">
   <div class="top-right">
-    <%= link_to "Login", new_user_session_path, class: "login-btn-small" %>
+    <% if user_signed_in? == false %>
+      <%= link_to "Login", new_user_session_path, class: "login-btn-small" %>
+    <% else %>
+      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "login-btn-small"
+ %>
+    <% end %>
   </div>
-  <%= link_to ("Start your journey with MentorMe"), mentors_path, class: "landing-header" %>
+  <div class="top-left">
+    <%= image_tag "logonb.png", class: "top-left" %>
+  </div>
+  <% if user_signed_in? %>
+    <div class="landing-header">
+      Mentor Me <br>
+      <div class="smaller-header">      Welcome back <%= current_user.first_name.capitalize %>!</div>
+    </div>
+  <% else %>
+    <div class="landing-header">
+      Start your journey with MentorMe
+    </div>
+  <% end %>
   <div class="button-box">
     <%= link_to "Find your mentor", mentors_path, class: "btn-flat-home" %>
     <% if user_signed_in? && current_user.mentor %>
       <% mentor = Mentor.find_by_user_id(current_user.id) %>
-      <%= link_to "Manage my Profile", edit_mentor_path((mentor)), class: "btn-ghost" %>
+      <%= link_to "Manage Bookings", bookings_path, class: "btn-ghost" %>
     <% else %>
       <%= link_to "Become a mentor", new_user_registration_path, class: "btn-ghost" %>
     <% end %>

@@ -1,0 +1,83 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+.my-bookings-header {
+  margin: 10px;
+  color: $secondary-color;
+  font-weight: 400;
+  font-size: 32px;
+}
+
+.my-bookings-secondary {
+  margin: 10px;
+  font-weight: 300;
+}
+
+.bookings-container {
+  margin: 0 auto;
+  width: 83%;
+  padding: 0 20px;
+  margin-top: 20px;
+}
+
+.booking-avatar {
+  height: 200px;
+  width: 250px;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+.card-booking {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  height: 200px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  background: white;
+  padding-right: 16px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 4px;
+  justify-content: space-between;
+}
+
+.booking-buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 150px;
+  margin-right: 15px;
+}
+
+.booking-button-size {
+  width: 100%;
+  margin: 10px;
+}
+
+.booking-photo {
+  margin-left: 0;
+}
+
+.description {
+  font-weight: 300;
+}
+
+.container-booking-total {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.booking-content {
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

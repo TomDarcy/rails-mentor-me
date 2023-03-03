@@ -1,9 +1,10 @@
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 220px;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -130,8 +131,8 @@
   background-position: center;
   height: 200px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  align-items: start;
   color: white;
   font-size: 24px;
   font-weight: bold;
@@ -141,6 +142,7 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   width: 350px;
   margin-bottom: 20px;
+  justify-content: start;
 }
 
 .username {
@@ -160,4 +162,16 @@
 
 .header-text {
   color: $font-accent-color;
+}
+
+.sub-head-mentors {
+  color: brighten($primary-color, 20%);
+  font-size: small;
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+.main-head-mentors {
+  margin-left: 10px;
+  margin-top: 10px;
 }

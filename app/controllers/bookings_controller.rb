@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
       redirect_to mentor_path(@mentor),
                   notice: 'Booking could not be created. There is already a booking at this time.'
     elsif @booking.save
-      redirect_to mentor_path(@mentor), notice: 'Booking was successfully created.'
+      redirect_to bookings_path, notice: 'Booking was successfully created.'
     else
       # send home
       redirect_to mentor_path(@mentor), notice: 'Booking was not created.'
@@ -38,6 +38,24 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def accept_booking
+    @booking = Booking.find(params[:id])
+    @booking.update(status: 'accepted')
+    redirect_to bookings_path
+  end
+
+  def decline_booking
+    @booking = Booking.find(params[:id])
+    @booking.update(status: 'declined')
+    redirect_to bookings_path
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    redirect_to bookings_path
+  end
+
   private
 
   def set_mentor
@@ -45,7 +63,8 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:user_id, :mentor_id, :start_time, :end_time, :description, :status).merge(user_id: current_user.id)
+    params.require(:booking).permit(:user_id, :mentor_id, :start_time, :end_time, :description,
+                                    :status).merge(user_id: current_user.id)
   end
 
   def set_booking
