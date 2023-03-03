@@ -22,6 +22,7 @@
             <p>Field: <%= @mentor.field %></p>
             <p>Price: $<%= @mentor.price_per_hour %></p>
             <p>Experience: <%= @mentor.experience %></p>
+            <p>Rating: <%= number_with_precision(@mentor.average_rating, precision: 1) %></p>
           </div>
         </div>
       </div>
@@ -34,10 +35,16 @@
             <div class="header-text">
               <h4>Reviews</h4>
             </div>
-            <div class="review">
-            <% #if  %>
-            <em>No ones reviewed this mentor yet, book a session to be the first!</em>
-            </div>
+           <div class="review">
+            <% if @mentor.reviews.empty? %>
+              <em>No one has reviewed this mentor yet. Book a session to be the first!</em>
+            <% else %>
+              <% @mentor.reviews.each do |review| %>
+                <em><%= review.review %></em><br>
+              <% end %>
+            <% end %>
+          </div>
+
           </div>
         </div>
       </div>

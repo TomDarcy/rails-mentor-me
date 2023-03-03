@@ -1,13 +1,21 @@
 <% booking = Booking.first %>
 <% review = Review.new %>
+
 <div class="modal-content">
   <div class="modal-header">
     <h5 class="modal-title" id="reviewModalLabel">Leave your review</h5>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
   </div>
-  <%= simple_form_for [booking, review] do |f| %>
-    <%= f.input :review %>
-    <%= f.input :rating, as: :radio_buttons, collection: [1, 2, 3, 4, 5], label: "Rating" %>
-    <%= f.submit %>
-  <% end %>
+  <div class="modal-body">
+    <%= simple_form_for [booking, review], html: { class: 'review-form' } do |f| %>
+      <div class="form-group">
+        <%= f.label :review, class: 'form-label' %>
+        <%= f.text_area :review, class: 'form-control', rows: 4 %>
+        <%= f.input :rating, class: 'form-control text-center', collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+      </div>
+      <div class="form-group text-center">
+        <%= f.submit 'Submit review', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
 </div>
