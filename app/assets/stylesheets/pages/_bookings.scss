@@ -1,6 +1,7 @@
 * {
   margin: 0 auto;
   padding: 0;
+  text-align: center;
 }
 .my-bookings-header {
   margin: 10px;
@@ -8,19 +9,28 @@
   font-weight: $normal-font-weight;
 }
 
-.my-bookings-secondary {
+.my-bookings-secondary{
   margin: 10px;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .bookings-container {
   display: flex;
-  border: 1px solid red;
+  margin: 0 auto;
+  justify-content: center;
   width: 50%;
+  border: 1px solid red;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
+  box-shadow:rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
 
 .booking-avatar {
-  width: 40%;
-  border-radius: 8px;
+  width: 50%;
+  border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
