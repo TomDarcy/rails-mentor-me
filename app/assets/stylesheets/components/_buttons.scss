@@ -54,7 +54,7 @@
   background-color: whitesmoke;
   padding: 8px 24px;
   border-radius: 4px;
-  font-weight: lighter;
+  font-weight: $normal-font-weight;
   opacity: 0.7;
   transition: opacity 0.3s ease;
   text-decoration: none;
@@ -65,7 +65,7 @@
   background-color: whitesmoke;
   padding: 8px 24px;
   border-radius: 4px;
-  font-weight: lighter;
+  font-weight: $normal-font-weight;
   opacity: 1;
   text-decoration: none;
 }
