@@ -1,6 +1,5 @@
 <div class="container-booking-total">
-  <h1 class="my-bookings-header">Mentoring Sessions
-  </h1>
+  <h1 class="my-bookings-header">Mentors</h1>
   <div class="bookings-container">
     <!-- Mentoring sessions -->
     <% if @mentee_bookings.length > 0 %>
@@ -43,7 +42,7 @@
           </div>
           <div class="booking-buttons">
             <div class="booking-button-size">
-              <%= link_to "Cancel Session", booking_path(booking), data: {turbo_method: :delete}, class: "btn-flat text-decoration-none" %>
+              <%= link_to "Cancel Session", booking_path(booking), data: {turbo_method: :delete}, class: "btn-flat text-decoration-none btn-negative" %>
             </div>
             <div class="booking-button-size">
               <%= link_to "Review Session", booking_path(booking), data: {turbo_method: :delete}, class: "btn-flat text-decoration-none" %>
@@ -60,8 +59,7 @@
       <% end %>
     <% end %>
     <!-- Mentoring sesison copy -->
-    <h1 class="my-bookings-header">Coaching Sessions
-    </h1>
+    <h1 class="my-bookings-header">Mentees</h1>
     <% if @mentor_bookings.length > 0 %>
       <% @mentor_bookings.each do |booking| %>
         <div class="card-booking">

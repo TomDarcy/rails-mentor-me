@@ -7,8 +7,17 @@
   font-weight: $normal-font-weight;
 }
 
+.btn-flat:hover {
+  background: darken($secondary-color, 10%);
+  color: white;
+}
+
 .btn-color {
   color: $secondary-color;
+}
+
+.btn-color:hover {
+  color: darken($secondary-color, 10%);
 }
 
 .btn-positive {
@@ -35,10 +44,6 @@
   background-color: darken($negative-color, 10%);
 }
 
-.btn-flat:hover {
-  background: darken($secondary-color, 10%);
-  color: white;
-}
 
 .btn-flat-home {
   color: white;

@@ -5,8 +5,9 @@
 }
 .my-bookings-header {
   margin: 10px;
-  color: $tertiary-color;
-  font-weight: $normal-font-weight;
+  color: $secondary-color;
+  font-weight: 400;
+  font-size: 32px;
 }
 
 .my-bookings-secondary {
@@ -25,6 +26,8 @@
   height: 200px;
   width: 250px;
   border-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   object-fit: cover;
 }
