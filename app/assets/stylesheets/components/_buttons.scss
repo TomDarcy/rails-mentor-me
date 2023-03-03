@@ -15,6 +15,14 @@
   background-color: $positive-color;
 }
 
+.accepted {
+  color: $positive-color;
+}
+
+.declined {
+  color: $negative-color;
+}
+
 .btn-positive:hover {
   background-color: darken($positive-color, 10%);
 }
