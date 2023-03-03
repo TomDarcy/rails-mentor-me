@@ -6,6 +6,8 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import "star-rating.js/dist/star-rating.css";
 
 // Your CSS partials
 @import "components/index";
@@ -17,6 +19,7 @@
 @import "components/buttons";
 @import "components/container";
 @import "components/filter";
+@import "components/review_modal";
 
 body {
   background-color: $background-color;

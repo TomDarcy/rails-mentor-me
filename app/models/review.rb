@@ -1,4 +1,4 @@
 class Review < ApplicationRecord
   belongs_to :booking
-  belongs_to :mentor # , through: :booking
+  has_one :mentor, through: :booking
 end

@@ -5,3 +5,16 @@ $extra-light-font-weight: 100;
 $lighter-font-weight: 200;
 $bold-font-weight: 400;
 $normal-font-weight: 300;
+
+@font-face {
+  font-family: 'Bootstrap Icons';
+  src: font-url('bootstrap-icons/font/fonts/bootstrap-icons.woff2') format('woff2'),
+       font-url('bootstrap-icons/font/fonts/bootstrap-icons.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bi {
+  font-family: 'Bootstrap Icons';
+  font-size: 1.5rem;
+}

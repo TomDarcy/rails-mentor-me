@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :bookings, only: [:index, :new, :create, :edit, :show, :destroy] do
     resources :bookmarks, only: [:create]
+    resources :reviews, only: [:create]
   end
   # Defines the root path route ("/")
   # root "articles#index"
@@ -16,6 +17,8 @@ Rails.application.routes.draw do
   resources :mentors do
     resources :bookings, only: [:new, :create, :edit, :show, :destroy]
   end
+
+
 
   post 'mentors/become_mentor', to: 'mentors#become_mentor', as: :become_mentor
   post 'bookings/:id/accept', to: 'bookings#accept_booking', as: :accept_booking

@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :mentor
+  has_many :reviews
 
   # def start_time=(datetime_str)
   #   self.start_time = DateTime.parse(datetime_str)
