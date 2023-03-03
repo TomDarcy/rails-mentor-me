@@ -35,16 +35,15 @@
             <div class="header-text">
               <h4>Reviews</h4>
             </div>
-           <div class="review">
-            <% if @mentor.reviews.empty? %>
-              <em>No one has reviewed this mentor yet. Book a session to be the first!</em>
-            <% else %>
-              <% @mentor.reviews.each do |review| %>
-                <em><%= review.review %></em><br>
+            <div class="review">
+              <% if @mentor.reviews.empty? %>
+                <em>No one has reviewed this mentor yet. Book a session to be the first!</em>
+              <% else %>
+                <% @mentor.reviews.each do |review| %>
+                  <em><%= review.review %></em><br>
+                <% end %>
               <% end %>
-            <% end %>
-          </div>
-
+            </div>
           </div>
         </div>
       </div>
