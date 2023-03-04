@@ -22,7 +22,11 @@
             <p>Field: <%= @mentor.field %></p>
             <p>Price: $<%= @mentor.price_per_hour %></p>
             <p>Experience: <%= @mentor.experience %></p>
-            <p>Rating: <%= number_with_precision(@mentor.average_rating, precision: 1) %></p>
+            <% if @mentor.average_rating == 0 %>
+              <p>Rating: No reviews yet</p>
+            <% else %>
+              <p>Rating: <%= number_with_precision(@mentor.average_rating, precision: 1) %></p>
+            <% end %>
           </div>
         </div>
       </div>
@@ -40,7 +44,8 @@
                 <em>No one has reviewed this mentor yet. Book a session to be the first!</em>
               <% else %>
                 <% @mentor.reviews.each do |review| %>
-                  <em><%= review.review %></em><br>
+                  <em><%= review.booking.user.first_name.capitalize %> <%= review.booking.user.last_name.capitalize %> - </em>
+                  <em>   <%= review.review %> - <%= review.rating %> stars </em> <br>
                 <% end %>
               <% end %>
             </div>

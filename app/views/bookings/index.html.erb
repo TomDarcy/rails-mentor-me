@@ -42,12 +42,12 @@
           </div>
           <div class="booking-buttons">
             <div class="booking-button-size">
-              <%= link_to "Cancel Session", booking_path(booking), data: {turbo_method: :delete}, class: "btn-flat text-decoration-none btn-negative" %>
+              <%= link_to "Cancel Session", booking_path(booking), data: {turbo_method: :delete}, class: "btn-flat booking-button-width text-decoration-none btn-negative" %>
             </div>
             <!-- Modal button -->
             <div class="booking-button-size">
-              <button type="button" class="btn-flat text-decoration-none" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%=booking.mentor.id%>">
-                Review
+              <button type="button" class="btn-flat text-decoration-none booking-button-width" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%=booking.mentor.id%>">
+                Review Session
               </button>
             </div>
             <!-- Modal -->
@@ -112,24 +112,28 @@
             <% if booking.status == "pending" %>
               <div class="booking-button-size">
                 <%= form_tag(accept_booking_path(id: booking.id), method: :post) do %>
-                  <%= submit_tag "Accept", class: "btn-flat text-decoration-none btn-positive" %>
+                  <%= submit_tag "Accept", class: "btn-flat text-decoration-none btn-positive booking-button-width
+" %>
                 <% end %>
               </div>
               <div class="booking-button-size">
                 <%= form_tag(decline_booking_path(id: booking.id), method: :post) do %>
-                  <%= submit_tag "Decline", class: "btn-flat text-decoration-none btn-negative" %>
+                  <%= submit_tag "Decline", class: "btn-flat text-decoration-none btn-negative booking-button-width
+" %>
                 <% end %>
               </div>
             <% elsif booking.status == "accepted" %>
               <div class="booking-button-size">
                 <%= form_tag(decline_booking_path(id: booking.id), method: :post) do %>
-                  <%= submit_tag "Decline", class: "btn-flat text-decoration-none btn-negative" %>
+                  <%= submit_tag "Decline", class: "btn-flat text-decoration-none btn-negative booking-button-width
+" %>
                 <% end %>
               </div>
             <% elsif booking.status == "declined" %>
               <div class="booking-button-size">
                 <%= form_tag(accept_booking_path(id: booking.id), method: :post) do %>
-                  <%= submit_tag "Accept", class: "btn-flat text-decoration-none btn-positive" %>
+                  <%= submit_tag "Accept", class: "btn-flat text-decoration-none btn-positive booking-button-width
+" %>
                 <% end %>
               </div>
             <% end%>
