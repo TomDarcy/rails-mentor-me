@@ -44,7 +44,6 @@
   background-color: darken($negative-color, 10%);
 }
 
-
 .btn-flat-home {
   color: white;
   padding: 8px 24px;
@@ -118,4 +117,10 @@
     width: 100%;
     margin-bottom: 10px;
   }
+}
+
+.booking-button-width {
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
 }
