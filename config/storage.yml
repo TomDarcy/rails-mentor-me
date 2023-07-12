@@ -17,9 +17,6 @@ local:
 cloudinary:
   service: Cloudinary
   folder: <%= Rails.env %>
-  cloud_name: "ddkbw2xpb"
-  api_key: "263679636125825"
-  api_secret: "6ctL0SopEgfJOya2rnkNOhDfY6M"
 
 
 
